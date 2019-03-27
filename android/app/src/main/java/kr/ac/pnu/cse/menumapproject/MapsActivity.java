@@ -31,6 +31,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
         LatLng pnucse = new LatLng(35.230996, 129.082302);
         mMap.addMarker(new MarkerOptions().position(pnucse).title("컴퓨터공학관"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pnucse, 11));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pnucse, 15));
     }
 }
