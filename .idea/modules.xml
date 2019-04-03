@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/projectTeam1.iml" filepath="$PROJECT_DIR$/projectTeam1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/naver_map_crawler/selenium-server.iml" filepath="$PROJECT_DIR$/naver_map_crawler/selenium-server.iml" />
     </modules>
   </component>
 </project>
