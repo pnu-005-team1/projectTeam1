@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">320756596905-ca9t1c7076q5tkcou5i3pq01mspvfcqe.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://menumapproj.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">320756596905</string>
+    <string name="google_api_key" translatable="false">AIzaSyB3qv72fgj9yuy5lr9nyVQirOKeEJbKfcs</string>
+    <string name="google_app_id" translatable="false">1:320756596905:android:507c7f108f827aec</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB3qv72fgj9yuy5lr9nyVQirOKeEJbKfcs</string>
+    <string name="google_storage_bucket" translatable="false">menumapproj.appspot.com</string>
+    <string name="project_id" translatable="false">menumapproj</string>
+</resources>
