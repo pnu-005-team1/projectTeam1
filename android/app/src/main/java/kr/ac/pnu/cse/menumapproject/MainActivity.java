@@ -41,6 +41,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import kr.ac.pnu.cse.menumapproject.db.DbHelper;
+
 
 public class MainActivity extends AppCompatActivity
         implements OnMapReadyCallback,
@@ -72,6 +74,8 @@ public class MainActivity extends AppCompatActivity
             .setInterval(UPDATE_INTERVAL_MS)
             .setFastestInterval(FASTEST_UPDATE_INTERVAL_MS);
 
+    private DbHelper dbHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +98,8 @@ public class MainActivity extends AppCompatActivity
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        dbHelper = new DbHelper(this, "MENU_DB", null, 1);
+        dbHelper.addDummyData();
     }
 
 
@@ -200,13 +206,10 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onStart() {
-
-        if (mGoogleApiClient != null && mGoogleApiClient.isConnected() == false) {
-
+        if (mGoogleApiClient != null && !mGoogleApiClient.isConnected()) {
             Log.d(TAG, "onStart: mGoogleApiClient connect");
             mGoogleApiClient.connect();
         }
-
         super.onStart();
     }
 
