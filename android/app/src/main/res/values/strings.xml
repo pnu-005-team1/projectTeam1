@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MenuMapProject</string>
+    <string name="app_name">메뉴마스터</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
