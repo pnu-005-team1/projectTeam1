@@ -51,10 +51,10 @@ public class DbHelper extends SQLiteOpenHelper {
         if(cursor != null){
             while(cursor.moveToNext()) {
                 MenuModel menu = new MenuModel();
-                menu.menuName = cursor.getString(0);
-                menu.menuPrice = cursor.getInt(1);
-                menu.lat = cursor.getFloat(2);
-                menu.lng = cursor.getFloat(3);
+                menu.menuName = cursor.getString(cursor.getColumnIndex("MENU"));
+                menu.menuPrice = cursor.getInt(cursor.getColumnIndex("PRICE"));
+                menu.lat = cursor.getFloat(cursor.getColumnIndex("LAT"));
+                menu.lng = cursor.getFloat(cursor.getColumnIndex("LNG"));
 
                 menuModelList.add(menu);
             }
@@ -68,17 +68,23 @@ public class DbHelper extends SQLiteOpenHelper {
      * DB에 더미 데이터를 넣는 함수
      */
     public void addDummyData() {
-        String sqlString = "INSERT INTO " + TABLE_NAME + " ( MENU, PRICE, LAT, LNG ) VALUES (DUMMY1, 1000, 35.231510, 129.086280) ";
-
         SQLiteDatabase db = getWritableDatabase();
 
         for(int i = 0 ; i < 10 ; i ++){
             ContentValues contentValues = new ContentValues();
             contentValues.put("MENU", "DUMMY" + i);
             contentValues.put("PRICE", 1000 + i * 1000);
-            contentValues.put("LAT", 35.231510f + (0.000005f * i));
-            contentValues.put("LNG", 129.086280f+ (0.000002f * i));
+            contentValues.put("LAT", 35.231510f + (0.001f * Math.random()));
+            contentValues.put("LNG", 129.086280f+ (0.001f * Math.random()));
             db.insert(TABLE_NAME, null, contentValues);
         }
+    }
+
+    /**
+     * DB를 리셋하는 함수
+     */
+    public void dbReset() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME);
     }
 }

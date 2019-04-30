@@ -38,10 +38,12 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import kr.ac.pnu.cse.menumapproject.db.DbHelper;
+import kr.ac.pnu.cse.menumapproject.model.MenuModel;
 
 
 public class MainActivity extends AppCompatActivity
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
 
         dbHelper = new DbHelper(this, "MENU_DB", null, 1);
+        dbHelper.dbReset();
         dbHelper.addDummyData();
     }
 
@@ -186,8 +189,24 @@ public class MainActivity extends AppCompatActivity
         });
         mGoogleMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
             @Override
-            public void onCameraMove() { }
+            public void onCameraMove() {
+            }
         });
+
+        //DB에서 더미 데이터를 받아와서 지도에 표시
+        ArrayList<MenuModel> menuModelArrayList = dbHelper.getAllMenuList();
+        for (MenuModel menuModel : menuModelArrayList) {
+            Log.d("LOG_TAG", "lat : " + menuModel.lat + ", lng : " + menuModel.lng);
+            String markerTitle = menuModel.menuName;
+            String markerSnippet = menuModel.menuPrice + "원";
+
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.title(markerTitle);
+            markerOptions.snippet(markerSnippet);
+            markerOptions.position(new LatLng(menuModel.lat, menuModel.lng));
+
+            mGoogleMap.addMarker(markerOptions);
+        }
     }
 
     @Override
@@ -211,6 +230,7 @@ public class MainActivity extends AppCompatActivity
             mGoogleApiClient.connect();
         }
         super.onStart();
+
     }
 
     @Override
