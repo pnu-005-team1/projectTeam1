@@ -36,7 +36,7 @@ public class RestaurantList extends AppCompatActivity {
 
         //Firebase
         database = FirebaseDatabase.getInstance();
-        restaurantList = database.getReference("Restaurants");
+        restaurantList = database.getReference("Restaurant");
 
         recyclerView  = (RecyclerView)findViewById(R.id.recycler_restaurants);
         recyclerView.setHasFixedSize(true);
@@ -46,16 +46,20 @@ public class RestaurantList extends AppCompatActivity {
         //Intent
         if(getIntent()!= null)
             categoryId=getIntent().getStringExtra("CategoryId");
-        if(!categoryId.isEmpty()&& categoryId != null)
+        if(!categoryId.isEmpty())
         {
             loadListRestaurant(categoryId);
         }
     }
     private void loadListRestaurant(String categoryId){
-        adapter=new FirebaseRecyclerAdapter<Restaurants, RestaurantViewHolder>(Restaurants.class, R.layout.restaurant_item,RestaurantViewHolder.class, restaurantList.orderByChild("RestaurantId").equalTo(categoryId)) {
+        adapter=new FirebaseRecyclerAdapter<Restaurants, RestaurantViewHolder>(Restaurants.class, R.layout.restaurant_item,RestaurantViewHolder.class, restaurantList.orderByChild("MenuId").equalTo(categoryId)) {
             @Override
             protected void populateViewHolder(RestaurantViewHolder viewHolder, Restaurants model, int position) {
                 viewHolder.name_restaurant.setText(model.getName());
+                viewHolder.description_restaurant.setText(model.getDescription());
+                viewHolder.location_restaurant.setText(model.getLocation());
+                viewHolder.information_1_restaurant.setText(model.getInformation_1());
+                viewHolder.information_2_restaurant.setText(model.getInformation_2());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.image_restaurant);
 

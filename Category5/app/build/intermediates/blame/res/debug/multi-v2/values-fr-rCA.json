@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ibrag\\AndroidStudioProjects\\Category5\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
+            "outputFile": "C:\\Users\\user\\Documents\\Category5\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ibrag\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\c116f23290f1fabf390b2f2b7da7e266\\res\\values-fr-rCA\\values.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\b8835b2d6136fe18c69c9498ab9cb155\\res\\values-fr-rCA\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ibrag\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\6817a59695f3978f74065346eff01553\\res\\values-fr-rCA\\values-fr-rCA.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\4cd1ef69b40b01d01c31978f49befc39\\res\\values-fr-rCA\\values-fr-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ibrag\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.2.0.aar\\1df52f3f4a464a249a4c407b94ce5add\\res\\values-fr-rCA\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "219",
-                        "endOffsets": "470"
-                    },
-                    "to": {
-                        "startLines": "27",
-                        "startColumns": "4",
-                        "startOffsets": "3158",
-                        "endColumns": "219",
-                        "endOffsets": "3373"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ibrag\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f6b596a6c7d7d034f7039dc81280529d\\res\\values-fr-rCA\\values-fr-rCA.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\e89459cd189ac9d283a9ee57731e4487\\res\\values-fr-rCA\\values-fr-rCA.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -69,6 +52,23 @@
                         "startOffsets": "4924",
                         "endColumns": "100",
                         "endOffsets": "5020"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.2.0.aar\\94d0c860abe9dee0db164e39c5cf9c3e\\res\\values-fr-rCA\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "219",
+                        "endOffsets": "470"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "3158",
+                        "endColumns": "219",
+                        "endOffsets": "3373"
                     }
                 }
             ]
