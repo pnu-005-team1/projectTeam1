@@ -1,5 +1,6 @@
 package kr.ac.pusan.cse.category5.HolderV;
 
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,10 @@ import kr.ac.pusan.cse.category5.R;
 public class RestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView name_restaurant;
     public ImageView image_restaurant;
+    public TextView description_restaurant;
+    public TextView location_restaurant;
+    public TextView information_1_restaurant;
+    public TextView information_2_restaurant;
     private ItemClickListener itemClickListener;
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -25,6 +30,10 @@ public class RestaurantViewHolder extends RecyclerView.ViewHolder implements Vie
 
         name_restaurant = (TextView)itemView.findViewById(R.id.name_restaurant);
         image_restaurant = (ImageView)itemView.findViewById(R.id.image_restaurant);//imageView
+        description_restaurant=(TextView)itemView.findViewById(R.id.description_restaurant);//TextView
+        location_restaurant=(TextView)itemView.findViewById(R.id.location_restaurant);
+        information_1_restaurant=(TextView)itemView.findViewById(R.id.information_1_restaurant);
+        information_2_restaurant=(TextView)itemView.findViewById(R.id.information_2_restaurant);
 
         itemView.setOnClickListener(this);
     }
