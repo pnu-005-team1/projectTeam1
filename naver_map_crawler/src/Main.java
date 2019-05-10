@@ -50,6 +50,7 @@ public class Main {
             fix_map.click();
             for(String food:menu){
                 searchBar.clear();
+                searchBar.clear();
                 searchBar.sendKeys(food);   //음식을 검색한다.
                 searchButton.click();
                 long time2 = System.currentTimeMillis();
@@ -123,14 +124,25 @@ public class Main {
                 driver.findElement(By.xpath("//*[@id=\"panel\"]/div[2]/div[1]/div[2]/div[2]/ul/li[1]/div[2]/ul/li[4]/a")).click();
             }
             catch (Exception e){
-                driver.findElement(By.xpath("//*[@id=\"panel\"]/div[2]/div[1]/div[2]/div[2]/ul/li[1]/div[1]/dl/dt/a/b")).click();
-                driver.findElement(By.xpath("//*[@id=\"panel\"]/div[2]/div[1]/div[2]/div[2]/ul/li[1]/div[2]/ul/li[4]/a")).click();
+                try{
+                    driver.findElement(By.xpath("//*[@id=\"panel\"]/div[2]/div[1]/div[2]/div[2]/ul/li/div[1]/dl/dt/a/b")).click();
+                    driver.findElement(By.xpath("//*[@id=\"panel\"]/div[2]/div[1]/div[2]/div[2]/ul/li/div[2]/ul/li[4]/a")).click();
+                }
+                catch (Exception e2){
+                    driver.findElement(By.xpath("//*[@id=\"panel\"]/div[2]/div[1]/div[2]/div[2]/ul/li[1]/div[1]/dl/dt/a")).click();
+                    driver.findElement(By.xpath("//*[@id=\"panel\"]/div[2]/div[1]/div[2]/div[2]/ul/li[1]/div[2]/ul/li[4]/a")).click();
+                }
             }
             //잠시 기다린다.
             long time3 = System.currentTimeMillis();
             while(System.currentTimeMillis()-1000>time3){}
             Object[] setWindowHandles = driver.getWindowHandles().toArray();
-            driver.switchTo().window(setWindowHandles[1].toString());
+            try{
+                driver.switchTo().window(setWindowHandles[1].toString());
+            }
+            catch (Exception e){
+                continue;
+            }
             driver.get(driver.getCurrentUrl() + "&tab=menu");
 
             HashSet menuNprice = new HashSet();
