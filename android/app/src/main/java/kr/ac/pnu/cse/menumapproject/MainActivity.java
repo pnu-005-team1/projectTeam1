@@ -205,21 +205,8 @@ public class MainActivity extends AppCompatActivity
             markerOptions.snippet(markerSnippet);
             markerOptions.position(new LatLng(menuModel.lat, menuModel.lng));
 
-            mGoogleMap.addMarker(markerOptions).showInfoWindow();
+            mGoogleMap.addMarker(markerOptions);
         }
-        
-        mGoogleMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
-            @Override
-            public void onMarkerDragStart(Marker marker) {
-                String url ="https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query="+marker.getTitle();
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
-            }
-            @Override
-            public void onMarkerDrag(Marker marker) {}
-            @Override
-            public void onMarkerDragEnd(Marker marker) {}
-        });
     }
 
     @Override
