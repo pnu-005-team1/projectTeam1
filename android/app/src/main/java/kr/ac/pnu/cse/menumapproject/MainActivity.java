@@ -204,13 +204,18 @@ public class MainActivity extends AppCompatActivity
             markerOptions.title(markerTitle);
             markerOptions.snippet(markerSnippet);
             markerOptions.position(new LatLng(menuModel.lat, menuModel.lng));
+            markerOptions.draggable(true);
 
             mGoogleMap.addMarker(markerOptions).showInfoWindow();
         }
         
         mGoogleMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+            double prevLat = 0f;
+            double prevLng = 0f;
             @Override
             public void onMarkerDragStart(Marker marker) {
+                prevLat = marker.getPosition().latitude;
+                prevLng = marker.getPosition().longitude;
                 String url ="https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query="+marker.getTitle();
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(intent);
@@ -218,7 +223,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onMarkerDrag(Marker marker) {}
             @Override
-            public void onMarkerDragEnd(Marker marker) {}
+            public void onMarkerDragEnd(Marker marker) {
+                marker.setPosition(new LatLng(prevLat, prevLng));
+            }
         });
     }
 
