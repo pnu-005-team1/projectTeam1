@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "320756596905",
+    "firebase_url": "https://menumapproj.firebaseio.com",
+    "project_id": "menumapproj",
+    "storage_bucket": "menumapproj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320756596905:android:507c7f108f827aec",
+        "android_client_info": {
+          "package_name": "kr.ac.pusan.cse.category5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320756596905-a7pd88a7u4uhenhhu21mv8mrgckuenea.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.ac.pusan.cse.category5",
+            "certificate_hash": "f846a292783dddb033b37b9447b7ebc3848e6c1b"
+          }
+        },
+        {
+          "client_id": "320756596905-ca9t1c7076q5tkcou5i3pq01mspvfcqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3qv72fgj9yuy5lr9nyVQirOKeEJbKfcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320756596905-ca9t1c7076q5tkcou5i3pq01mspvfcqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
