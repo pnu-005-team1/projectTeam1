@@ -136,6 +136,18 @@ public class MainActivity extends AppCompatActivity
         });//카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //해쉬키
 
+        //회원가입~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Button JoinButton= (Button) findViewById(R.id.firebaseAuth);
+
+        JoinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,SignActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         try {
             PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
