@@ -52,6 +52,10 @@
             android:value="AIzaSyBjLx3gM2pElIuCNNxkYcjOti5KeFX2vdc" />
 
         <activity
+            android:name=".SignActivity"
+            android:label="@string/title_activity_maps"></activity>
+
+        <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
         <receiver android:name=".BroadcastD"></receiver>
