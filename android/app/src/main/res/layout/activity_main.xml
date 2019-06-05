@@ -13,15 +13,38 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+
+        <Button
+            android:id="@+id/kakaoLinkBtn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="120dp"
+
+            android:text="Share"
+            android:textSize="10dp"/>
+        <Button
+            android:id="@+id/firebaseAuth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="@string/join"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="190dp"
+            android:textSize="10dp"
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+
             <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/AppTheme.AppBarOverlay">
+
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -32,6 +55,7 @@
                     <SearchView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"></SearchView>
+
                 </android.support.v7.widget.Toolbar>
 
             </android.support.design.widget.AppBarLayout>
@@ -45,6 +69,8 @@
 
                 class="com.google.android.gms.maps.MapFragment"
                  />
+
+
         </LinearLayout>
 
     </android.support.design.widget.CoordinatorLayout>

@@ -2,9 +2,16 @@ package kr.ac.pnu.cse.menumapproject;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -18,8 +25,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -36,7 +46,13 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.kakao.kakaolink.KakaoLink;
+import com.kakao.kakaolink.KakaoTalkLinkMessageBuilder;
+import com.kakao.util.KakaoParameterException;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Calendar;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +72,8 @@ public class MainActivity extends AppCompatActivity
     private GoogleApiClient mGoogleApiClient = null;
     private GoogleMap mGoogleMap = null;
     private Marker currentMarker = null;
+    private static int ONE_MINUTE = 5626;
+
 
     private static final String TAG = "googlemap_example";
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
@@ -99,12 +117,92 @@ public class MainActivity extends AppCompatActivity
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        new AlarmHATT(getApplicationContext()).Alarm();
+//카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Button kakaoLinkBtn = (Button) findViewById(R.id.kakaoLinkBtn);
 
+        kakaoLinkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    KakaoLink kakaoLink = KakaoLink.getKakaoLink(getApplicationContext());
+                    KakaoTalkLinkMessageBuilder messageBuilder = kakaoLink.createKakaoTalkLinkMessageBuilder();
+                    messageBuilder.addText("야 오늘 이거 묵으까?");
+                    kakaoLink.sendMessage(messageBuilder, getApplicationContext());
+                } catch (KakaoParameterException e) {
+                    e.printStackTrace();
+                }
+            }
+        });//카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //해쉬키
+
+        //회원가입~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Button JoinButton= (Button) findViewById(R.id.firebaseAuth);
+
+        JoinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,SignActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                Log.e("Hash key", something);
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Log.e("name not found", e.toString());
+        }
+       /* try {
+
+                PackageInfo info = getPackageManager().getPackageInfo("kr.ac.pnu.cse.menumapproject", PackageManager.GET_SIGNATURES);
+                for (Signature signature : info.signatures) {
+                    MessageDigest md = MessageDigest.getInstance("SHA");
+                    md.update(signature.toByteArray());
+                    Log.e("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+            */
+        // 헤쉬키
         dbHelper = new DbHelper(this, "MENU_DB", null, 1);
         dbHelper.dbReset();
         dbHelper.addDummyData();
     }
 
+    public class AlarmHATT {
+        private Context context;
+
+        public AlarmHATT(Context context) {
+            this.context = context;
+        }
+
+        public void Alarm() {
+            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(MainActivity.this, BroadcastD.class);
+
+            PendingIntent sender = PendingIntent.getBroadcast(MainActivity.this, 0, intent, 0);
+
+            Calendar calendar = Calendar.getInstance();
+            //알람시간 calendar에 set해주기
+
+            calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE), 18, 5, 0);
+
+            //점심 시간마다 알람 예약
+            am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
+        }
+    }
 
     @Override
     public void onResume() {
@@ -204,9 +302,33 @@ public class MainActivity extends AppCompatActivity
             markerOptions.title(markerTitle);
             markerOptions.snippet(markerSnippet);
             markerOptions.position(new LatLng(menuModel.lat, menuModel.lng));
+            markerOptions.draggable(true);
 
-            mGoogleMap.addMarker(markerOptions);
+            mGoogleMap.addMarker(markerOptions).showInfoWindow();
         }
+
+        mGoogleMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+            double prevLat = 0f;
+            double prevLng = 0f;
+
+            @Override
+            public void onMarkerDragStart(Marker marker) {
+                prevLat = marker.getPosition().latitude;
+                prevLng = marker.getPosition().longitude;
+                String url = "https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=" + marker.getTitle();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+
+            @Override
+            public void onMarkerDrag(Marker marker) {
+            }
+
+            @Override
+            public void onMarkerDragEnd(Marker marker) {
+                marker.setPosition(new LatLng(prevLat, prevLng));
+            }
+        });
     }
 
     @Override
@@ -302,7 +424,7 @@ public class MainActivity extends AppCompatActivity
                     1);
         } catch (IOException ioException) {
             //네트워크 문제
-            Toast.makeText(this, "지오코더 서비스 사용불가", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "지오코더 서비스 사용불가", Toast.LENGTH_LONG).show();
             return "지오코더 서비스 사용불가";
         } catch (IllegalArgumentException illegalArgumentException) {
             Toast.makeText(this, "잘못된 GPS 좌표", Toast.LENGTH_LONG).show();
@@ -310,7 +432,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (addresses == null || addresses.size() == 0) {
-            Toast.makeText(this, "주소 미발견", Toast.LENGTH_LONG).show();
+            //           Toast.makeText(this, "주소 미발견", Toast.LENGTH_LONG).show();
             return "주소 미발견";
 
         } else {
@@ -355,7 +477,7 @@ public class MainActivity extends AppCompatActivity
         //디폴트 위치, Seoul
         LatLng DEFAULT_LOCATION = new LatLng(37.56, 126.97);
         String markerTitle = "위치정보 가져올 수 없음";
-        String markerSnippet = "위치 퍼미션과 GPS 활성 요부 확인하세요";
+        String markerSnippet = "위치 퍼미션과 GPS 활성 여부를 확인하세요";
 
         if (currentMarker != null) currentMarker.remove();
 
@@ -382,7 +504,7 @@ public class MainActivity extends AppCompatActivity
 
         if (hasFineLocationPermission == PackageManager
                 .PERMISSION_DENIED && fineLocationRationale)
-            showDialogForPermission("앱을 실행하려면 퍼미션을 허가하셔야합니다.");
+            showDialogForPermission("앱을 실행하려면 퍼미션을 허가 해야 합니다.");
 
         else if (hasFineLocationPermission
                 == PackageManager.PERMISSION_DENIED && !fineLocationRationale) {
@@ -512,4 +634,19 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    private void getAppKeyHash() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                Log.e("Hash key", something);
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Log.e("name not found", e.toString());
+        }
+    }
 }
