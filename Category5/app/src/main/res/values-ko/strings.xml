@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">안녕핬에요</string>
+    <string name="SignIn">로그인</string>
+    <string name="SignOut">회원가입</string>
+    <string name="Menu">메뉴</string>
+    <string name="Signout">로그아웃</string>
+    <string name="Description">묘사:</string>
+    <string name="Location">위치:</string>
+    <string name="Information1">정보 1:</string>
+    <string name="Information2">정보 2:</string>
+    <string name="hint">여기에 의견을 제시하십시오</string>
+    <string name="ratingdescription">이 레스토랑의 등급을 매기고 몇 가지 피드백을 제공하십시오</string>
+    <string name="ratingtitle">레스토랑 순위 </string>
+    <string name="ratingpositive">제출하다</string>
+    <string name="ratingnegative">취소하다</string>
+    <string name="ratingdescriptionverybad">매우 나쁘다</string>
+    <string name="ratingdescriptionnotgood">탐탁하지 않다</string>
+    <string name="ratingdescriptiongood">좋은</string>
+    <string name="ratingdescriptionverygood">좋습니다</string>
+    <string name="ratingdescriptionexcellent">훌륭한</string>
+
+    <string name="app_name">MenuMapProject</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="PhoneNumber">Phone Number</string>
+    <string name="PhoneNumber_real">12345</string>
+    <string name="Password">Password</string>
+    <string name="Password_real">1234</string>
+    <string name="Nariman">Nariman</string>
+    <string name="Name">Name</string>
+
+</resources>

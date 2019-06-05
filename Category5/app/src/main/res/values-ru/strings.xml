@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Здраствуйте</string>
+    <string name="SignIn">Войти</string>
+    <string name="SignOut">Регистрация</string>
+    <string name="Menu">Меню</string>
+    <string name="Signout">Выйти</string>
+    <string name="Description">Описание:</string>
+    <string name="Location">Местонахождение:</string>
+    <string name="Information1">Информация 1:</string>
+    <string name="Information2">Информация 2:</string>
+    <string name="hint">Пожалуйста оставьте свои комментарии здесь.</string>
+    <string name="ratingdescription">Пожалуйста оцените Ресторан и оставить комментарии</string>
+    <string name="ratingtitle">Рейтинг Ресторана</string>
+    <string name="ratingpositive">Отправить</string>
+    <string name="ratingnegative">Отмена</string>
+    <string name="ratingdescriptionverybad">Очень плохо</string>
+    <string name="ratingdescriptionnotgood">Плохо</string>
+    <string name="ratingdescriptiongood">Хорошо</string>
+    <string name="ratingdescriptionverygood">Очень хорошо</string>
+    <string name="ratingdescriptionexcellent">Отлично</string>
+
+    <string name="app_name">MenuMapProject</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="PhoneNumber">Phone Number</string>
+    <string name="PhoneNumber_real">12345</string>
+    <string name="Password">Password</string>
+    <string name="Password_real">1234</string>
+    <string name="Nariman">Nariman</string>
+    <string name="Name">Name</string>
+
+</resources>

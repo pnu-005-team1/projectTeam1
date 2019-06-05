@@ -1,4 +1,4 @@
-#Wed May 01 18:46:57 KST 2019
-base.0=C\:\\Users\\user\\Documents\\Category5\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Wed Jun 05 10:45:53 KST 2019
+base.0=C\:\\Users\\TrapXATA\\Documents\\GitHub\\projectTeam1\\Category5\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
