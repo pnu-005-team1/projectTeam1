@@ -109,6 +109,18 @@ public class MainActivity extends AppCompatActivity
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_main);
 
+        switch (ConfigActivity.ThemeNum) {
+            case 0:
+                setTheme(R.style.AppTheme);
+                break;
+            case 1:
+                setTheme(R.style.AppTheme2);
+                break;
+            case 2:
+                setTheme(R.style.AppTheme3);
+                break;
+        }
+
         Log.d(TAG, "onCreate");
         mActivity = this;
 
