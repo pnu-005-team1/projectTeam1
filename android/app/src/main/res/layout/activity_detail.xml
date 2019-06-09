@@ -13,6 +13,53 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/detail_add_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="즐겨찾기에 추가하기"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/detail_remove_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="즐겨찾기에서 삭제하기"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -38,7 +85,6 @@
         </LinearLayout>
 
         <View
-            android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray" />
@@ -76,7 +122,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:max="5"
-                android:numStars="5" />
+                android:numStars="5"
+                android:theme="@style/RatingBar" />
 
         </LinearLayout>
 
@@ -147,5 +194,6 @@
                 android:layout_weight="1"
                 android:clipToPadding="false" />
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

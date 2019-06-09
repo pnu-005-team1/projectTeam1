@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import kr.ac.pnu.cse.menumapproject.db.DbHelper;
 import kr.ac.pnu.cse.menumapproject.model.Review;
 import kr.ac.pnu.cse.menumapproject.model.Star;
 import kr.ac.pnu.cse.menumapproject.util.RetrofitUtil;
@@ -28,27 +29,69 @@ public class DetailActivity extends AppCompatActivity {
 
     public static String REST_NAME_KEY = "REST_NAME_KEY";
     public static String MENU_KEY = "MENU_KEY";
+    public static String LAT_KEY = "LAT_KEY";
+    public static String LNG_KEY = "LNG_KEY";
+    public static String IS_FAVORITE_KEY = "FAVORITE_KEY";
 
     private String restname;
     private String menus;
+    private float lat;
+    private float lng;
+    private boolean isFavorite;
 
     RatingBar ratingBar;
     ImageView addRatingImageView;
     RecyclerView reviewRecyclerView;
     ReviewRecyclerAdapter reviewRecyclerAdapter;
     ImageView addReviewImageView;
+    View addFavorite;
+    View removeFavorite;
 
     EditText reviewIdEditText;
     EditText reviewValueEditText;
     TextView menuTextView;
+
+    DbHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        dbHelper = new DbHelper(this, "MENU_DB", null, 1);
+
+        addFavorite = findViewById(R.id.detail_add_favorite);
+        addFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbHelper.addMenu(restname, lat, lng);
+                Snackbar.make(findViewById(android.R.id.content), "즐겨찾기에 등록되었습니다.", Snackbar.LENGTH_LONG).show();
+            }
+        });
+
+        removeFavorite = findViewById(R.id.detail_remove_favorite);
+        removeFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbHelper.removeMenu(restname);
+                finish();
+            }
+        });
+
         restname = getIntent().getStringExtra(REST_NAME_KEY);
         menus = getIntent().getStringExtra(MENU_KEY);
+        lat = getIntent().getFloatExtra(LAT_KEY, 0f);
+        lng = getIntent().getFloatExtra(LNG_KEY, 0f);
+        isFavorite = getIntent().getBooleanExtra(IS_FAVORITE_KEY, false);
+
+        if(isFavorite){
+            removeFavorite.setVisibility(View.VISIBLE);
+            addFavorite.setVisibility(View.GONE);
+        } else {
+            removeFavorite.setVisibility(View.GONE);
+            addFavorite.setVisibility(View.VISIBLE);
+        }
+
         Log.d("LOG_TAG", "menus : " + menus);
         Log.d("LOG_TAG", "rest name : " + restname);
 
@@ -87,6 +130,7 @@ public class DetailActivity extends AppCompatActivity {
         String prettyMenu = menuPretty(menus);
         Log.d("LOG_TAG", "prettyMenu" + prettyMenu);
         menuTextView.setText(prettyMenu);
+
 
         getStar();
         getReview();
