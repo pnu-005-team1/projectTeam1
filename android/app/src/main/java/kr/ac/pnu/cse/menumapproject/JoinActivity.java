@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Pattern;
 
-public class SignActivity extends AppCompatActivity {
+public class JoinActivity extends AppCompatActivity {
 
     // 비밀번호 정규식
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9!@.#$%^&*?_~]{4,16}$");
@@ -34,7 +34,7 @@ public class SignActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign);
+        setContentView(R.layout.activity_join);
 
         // 파이어베이스 인증 객체 선언
         firebaseAuth = FirebaseAuth.getInstance();
@@ -45,8 +45,7 @@ public class SignActivity extends AppCompatActivity {
 
     public void singUp(View view) {
 
-        Intent intent = new Intent(SignActivity.this, JoinActivity.class);
-        startActivity(intent);
+
         email = editTextEmail.getText().toString();
         password = editTextPassword.getText().toString();
 
@@ -55,14 +54,6 @@ public class SignActivity extends AppCompatActivity {
         }
     }
 
-    public void signIn(View view) {
-        email = editTextEmail.getText().toString();
-        password = editTextPassword.getText().toString();
-
-        if(isValidEmail() && isValidPasswd()) {
-            loginUser(email, password);
-        }
-    }
 
     // 이메일 유효성 검사
     private boolean isValidEmail() {
@@ -98,10 +89,12 @@ public class SignActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // 회원가입 성공
-                            Toast.makeText(SignActivity.this, R.string.success_signup, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(JoinActivity.this, R.string.success_signup, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(JoinActivity.this, SignActivity.class);
+                            startActivity(intent);
                         } else {
                             // 회원가입 실패
-                            Toast.makeText(SignActivity.this, R.string.failed_signup, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(JoinActivity.this, R.string.failed_signup, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -116,13 +109,12 @@ public class SignActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // 로그인 성공
-                            Toast.makeText(SignActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(SignActivity.this, ProfileActivity.class);
-                            startActivity(intent);
+                            Toast.makeText(JoinActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
+
 
                         } else {
                             // 로그인 실패
-                            Toast.makeText(SignActivity.this, R.string.failed_login, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(JoinActivity.this, R.string.failed_login, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
