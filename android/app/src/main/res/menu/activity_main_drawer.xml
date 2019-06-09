@@ -31,6 +31,9 @@
         <item
             android:id="@+id/nav_category_do"
             android:title="도시락" />
+        <item
+            android:id="@+id/nav_category_favorite"
+            android:title="즐겨찾기" />
     </group>
 
 

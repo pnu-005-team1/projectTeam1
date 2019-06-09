@@ -63,6 +63,7 @@ import java.util.Locale;
 
 import kr.ac.pnu.cse.menumapproject.db.DbHelper;
 import kr.ac.pnu.cse.menumapproject.model.Food;
+import kr.ac.pnu.cse.menumapproject.model.MenuModel;
 import kr.ac.pnu.cse.menumapproject.util.GeocoderUtil;
 import kr.ac.pnu.cse.menumapproject.util.RetrofitUtil;
 import retrofit2.Call;
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity
 
     private ArrayList<Food> foodArrayList = new ArrayList<>();
 
+    private boolean isFavoriteState = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +130,7 @@ public class MainActivity extends AppCompatActivity
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         new AlarmHATT(getApplicationContext()).Alarm();
-//카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         Button kakaoLinkBtn = (Button) findViewById(R.id.kakaoLinkBtn);
 
         kakaoLinkBtn.setOnClickListener(new View.OnClickListener() {
@@ -174,8 +176,6 @@ public class MainActivity extends AppCompatActivity
         }
         // 헤쉬키
         dbHelper = new DbHelper(this, "MENU_DB", null, 1);
-        dbHelper.dbReset();
-        dbHelper.addDummyData();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -217,6 +217,9 @@ public class MainActivity extends AppCompatActivity
                     case R.id.nav_category_do:
                         showMenuMarker("do");
                         break;
+                    case R.id.nav_category_favorite:
+                        showFavoriteMarker();
+                        break;
                 }
                 ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
                 return false;
@@ -224,8 +227,22 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    public void showMenuMarker(String menuName) {
+    public void showFavoriteMarker() {
+        isFavoriteState = true;
         mGoogleMap.clear();
+        for (MenuModel menuModel : dbHelper.getAllMenuList()) {
+            LatLng location = new LatLng(menuModel.lat, menuModel.lng);
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.title(menuModel.menuName);
+            markerOptions.position(location);
+            markerOptions.draggable(true);
+
+            mGoogleMap.addMarker(markerOptions).showInfoWindow();
+        }
+    }
+
+    public void showMenuMarker(String menuName) {
+        isFavoriteState = false;
         RetrofitUtil.getRetrofitService().getMenu(menuName, "r").enqueue(new Callback<List<Food>>() {
             @Override
             public void onResponse(Call<List<Food>> call, Response<List<Food>> response) {
@@ -234,18 +251,26 @@ public class MainActivity extends AppCompatActivity
 
                 foodArrayList.clear();
 
+                LatLng lastLatLng = null;
+
                 for (Food food : foodList) {
                     foodArrayList.add(food);
 
                     Log.d("LOG_TAG", "restname name : " + food.name + ", restname address : " + food.address);
                     Log.d("LOG_TAG", "lat : " + food.latitude + ", lng : " + food.longitude);
                     LatLng location = new LatLng(food.latitude, food.longitude);
+                    lastLatLng = location;
                     MarkerOptions markerOptions = new MarkerOptions();
                     markerOptions.title(food.name);
                     markerOptions.position(location);
                     markerOptions.draggable(true);
 
                     mGoogleMap.addMarker(markerOptions).showInfoWindow();
+                }
+
+                if (lastLatLng != null) {
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(lastLatLng, 13);
+                    mGoogleMap.moveCamera(cameraUpdate);
                 }
             }
 
@@ -322,7 +347,6 @@ public class MainActivity extends AppCompatActivity
         mRequestingLocationUpdates = false;
     }
 
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         Log.d(TAG, "onMapReady :");
@@ -371,15 +395,24 @@ public class MainActivity extends AppCompatActivity
             public void onInfoWindowClick(Marker marker) {
 
                 String menus = "";
-                for(Food food: foodArrayList) {
-                    if(food.name.equals(marker.getTitle())) {
+                float lat = 0f;
+                float lng = 0f;
+                for (Food food : foodArrayList) {
+                    if (food.name.equals(marker.getTitle())) {
                         menus = food.menus;
+                        lat = food.latitude;
+                        lng = food.longitude;
                     }
                 }
+
+                mGoogleMap.clear();
 
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
                 intent.putExtra(DetailActivity.REST_NAME_KEY, marker.getTitle());
                 intent.putExtra(DetailActivity.MENU_KEY, menus);
+                intent.putExtra(DetailActivity.LAT_KEY, lat);
+                intent.putExtra(DetailActivity.LNG_KEY, lng);
+                intent.putExtra(DetailActivity.IS_FAVORITE_KEY, isFavoriteState);
                 startActivity(intent);
             }
         });
