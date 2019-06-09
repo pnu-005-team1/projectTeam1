@@ -243,6 +243,7 @@ public class MainActivity extends AppCompatActivity
 
     public void showMenuMarker(String menuName) {
         isFavoriteState = false;
+        mGoogleMap.clear();
         RetrofitUtil.getRetrofitService().getMenu(menuName, "r").enqueue(new Callback<List<Food>>() {
             @Override
             public void onResponse(Call<List<Food>> call, Response<List<Food>> response) {
@@ -404,8 +405,6 @@ public class MainActivity extends AppCompatActivity
                         lng = food.longitude;
                     }
                 }
-
-                mGoogleMap.clear();
 
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
                 intent.putExtra(DetailActivity.REST_NAME_KEY, marker.getTitle());
