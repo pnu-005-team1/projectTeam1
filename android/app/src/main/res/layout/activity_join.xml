@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignActivity">
+    tools:context=".JoinActivity">
 
     <TextView
         android:id="@+id/tv_email"
@@ -40,28 +40,42 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"/>
 
+    <TextView
+        android:id="@+id/tv_passwordCheck"
+        android:layout_below="@id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="비밀번호 확인"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"/>
+
+    <EditText
+        android:id="@+id/et_passwordCheck"
+        android:layout_below="@id/tv_passwordCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"/>
+
+    <Button
+        android:id="@+id/btn_signUp"
+        android:layout_width="148dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/et_passwordCheck"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="102dp"
+        android:layout_marginEnd="323dp"
+        android:layout_weight="1"
+        android:onClick="singUp"
+        android:text="Join" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_password">
 
-
-        <Button
-            android:id="@+id/btn_signIn"
-            android:text="@string/signin"
-            android:onClick="signIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="50dp"/>
-        <Button
-            android:id="@+id/btn_signUp"
-            android:text="@string/signup"
-            android:onClick="singUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="50dp"/>
 
     </LinearLayout>
 
