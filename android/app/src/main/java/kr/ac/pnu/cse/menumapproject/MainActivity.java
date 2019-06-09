@@ -3,8 +3,6 @@ package kr.ac.pnu.cse.menumapproject;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -27,6 +25,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -51,7 +50,6 @@ import com.kakao.kakaolink.KakaoTalkLinkMessageBuilder;
 import com.kakao.util.KakaoParameterException;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,7 +57,13 @@ import java.util.List;
 import java.util.Locale;
 
 import kr.ac.pnu.cse.menumapproject.db.DbHelper;
+import kr.ac.pnu.cse.menumapproject.model.Food;
 import kr.ac.pnu.cse.menumapproject.model.MenuModel;
+import kr.ac.pnu.cse.menumapproject.util.GeocoderUtil;
+import kr.ac.pnu.cse.menumapproject.util.RetrofitUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity
@@ -137,12 +141,12 @@ public class MainActivity extends AppCompatActivity
         //해쉬키
 
         //회원가입~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Button JoinButton= (Button) findViewById(R.id.firebaseAuth);
+        Button JoinButton = (Button) findViewById(R.id.firebaseAuth);
 
         JoinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,SignActivity.class);
+                Intent intent = new Intent(MainActivity.this, SignActivity.class);
                 startActivity(intent);
 
             }
@@ -161,24 +165,19 @@ public class MainActivity extends AppCompatActivity
             // TODO Auto-generated catch block
             Log.e("name not found", e.toString());
         }
-       /* try {
-
-                PackageInfo info = getPackageManager().getPackageInfo("kr.ac.pnu.cse.menumapproject", PackageManager.GET_SIGNATURES);
-                for (Signature signature : info.signatures) {
-                    MessageDigest md = MessageDigest.getInstance("SHA");
-                    md.update(signature.toByteArray());
-                    Log.e("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            }
-            */
         // 헤쉬키
         dbHelper = new DbHelper(this, "MENU_DB", null, 1);
         dbHelper.dbReset();
         dbHelper.addDummyData();
+
+
+        findViewById(R.id.testButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("LOG_TAG", "CLICK");
+                startActivity(new Intent(getApplicationContext(), TestActivity.class));
+            }
+        });
     }
 
     public class AlarmHATT {
@@ -290,7 +289,7 @@ public class MainActivity extends AppCompatActivity
             public void onCameraMove() {
             }
         });
-
+        /*
         //DB에서 더미 데이터를 받아와서 지도에 표시
         ArrayList<MenuModel> menuModelArrayList = dbHelper.getAllMenuList();
         for (MenuModel menuModel : menuModelArrayList) {
@@ -306,6 +305,29 @@ public class MainActivity extends AppCompatActivity
 
             mGoogleMap.addMarker(markerOptions).showInfoWindow();
         }
+        */
+        RetrofitUtil.getRetrofitService().getMenu("cho", "w").enqueue(new Callback<List<Food>>() {
+            @Override
+            public void onResponse(Call<List<Food>> call, Response<List<Food>> response) {
+                List<Food> foodList = response.body();
+                for (Food food : foodList) {
+                    LatLng location = GeocoderUtil.getLatLngFromAddress(food.address, getApplicationContext());
+                    if (location != null) {
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.title(food.name);
+                        markerOptions.position(location);
+                        markerOptions.draggable(true);
+
+                        mGoogleMap.addMarker(markerOptions).showInfoWindow();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Food>> call, Throwable t) {
+                Log.d("LOG_TAG", "fail : " + t.getMessage());
+            }
+        });
 
         mGoogleMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
             double prevLat = 0f;
@@ -411,7 +433,6 @@ public class MainActivity extends AppCompatActivity
             Log.e(TAG, "onConnectionSuspended():  Google Play services " +
                     "connection lost.  Cause: service disconnected");
     }
-
 
     public String getCurrentAddress(LatLng latlng) {
         //지오코더... GPS를 주소로 변환
