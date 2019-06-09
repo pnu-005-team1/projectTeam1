@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
         new AlarmHATT(getApplicationContext()).Alarm();
 //카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Button kakaoLinkBtn = (Button) findViewById(R.id.kakaoLink  Btn);
+        Button kakaoLinkBtn = (Button) findViewById(R.id.kakaoLinkBtn);
 
         kakaoLinkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
