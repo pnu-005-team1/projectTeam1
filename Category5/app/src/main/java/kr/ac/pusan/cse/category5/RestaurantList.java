@@ -1,11 +1,13 @@
 package kr.ac.pusan.cse.category5;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -18,8 +20,10 @@ import kr.ac.pusan.cse.category5.HolderV.RestaurantViewHolder;
 import kr.ac.pusan.cse.category5.Interface.ItemClickListener;
 import kr.ac.pusan.cse.category5.UserModel.Restaurants;
 
+
 public class RestaurantList extends AppCompatActivity {
 
+    ImageView share;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
@@ -70,9 +74,11 @@ public class RestaurantList extends AppCompatActivity {
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.image_restaurant);
 
+
                 //Favs
                 if(localDB.isFavorite(adapter.getRef(position).getKey()))
                     viewHolder.fav_image.setImageResource(R.drawable.ic_star_black_24dp);
+
 
                 viewHolder.fav_image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -91,6 +97,28 @@ public class RestaurantList extends AppCompatActivity {
                         }
                     }
                 });
+
+
+                //share
+                viewHolder.share.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        viewHolder.share.setImageResource(R.drawable.ic_menu_share);
+                        Toast.makeText(RestaurantList.this, ""+model.getName()+"Ready to share", Toast.LENGTH_SHORT).show();
+                        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+                        share.setType("text/plain");
+                        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+                        // Add data to the intent, the receiving app will decide
+                        // what to do with it.
+                        share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
+                        share.putExtra(Intent.EXTRA_TEXT, "http://www.codeofaninja.com");
+
+                        startActivity(Intent.createChooser(share, "Share link!"));
+
+                    }
+                });
+
 
                 final Restaurants clickItem = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {

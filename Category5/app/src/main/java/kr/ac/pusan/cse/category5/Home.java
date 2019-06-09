@@ -27,6 +27,7 @@ import kr.ac.pusan.cse.category5.Coms.Common;
 import kr.ac.pusan.cse.category5.HolderV.MenuViewHolder;
 import kr.ac.pusan.cse.category5.Interface.ItemClickListener;
 import kr.ac.pusan.cse.category5.UserModel.Category;
+import kr.ac.pusan.cse.category5.UserModel.UUUsers;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -54,13 +55,15 @@ public class Home extends AppCompatActivity
         category=database.getReference("Category");
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton chat = (FloatingActionButton) findViewById(R.id.fab);
+        chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Here's chatroom", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-            }
+
+            startActivity((new Intent(Home.this, UserList.class)));}
+
         });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

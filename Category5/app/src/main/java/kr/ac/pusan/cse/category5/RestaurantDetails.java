@@ -1,14 +1,11 @@
 package kr.ac.pusan.cse.category5;
 
-import android.content.Context;
-import android.content.res.Resources;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -30,9 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 import java.util.Queue;
 
-import io.paperdb.Paper;
 import kr.ac.pusan.cse.category5.Coms.Common;
-import kr.ac.pusan.cse.category5.Helpers.LocHelper;
 import kr.ac.pusan.cse.category5.HolderV.RestaurantViewHolder;
 import kr.ac.pusan.cse.category5.UserModel.Rating;
 import kr.ac.pusan.cse.category5.UserModel.Restaurants;
@@ -40,30 +35,20 @@ import kr.ac.pusan.cse.category5.UserModel.Restaurants;
 public class RestaurantDetails extends AppCompatActivity implements RatingDialogListener {
 
     TextView name_restaurant, description_restaurant, location_restaurant, information_1_restaurant, information_2_restaurant;
-    TextView description_restaurant_1, location_restaurant_1, information_1_restaurant_1, information_2_restaurant_2,
-            ratingdescriptionexcellent,ratingdescriptionverygood, ratingdescriptiongood, ratingdescriptionnotgood, ratingdescriptionverybad, ratingnegative, ratingpositive,
-            ratingtitle, ratingdescription, hint;
 //    ImageView image_restaurant;
     FloatingActionButton btnRating;
     RatingBar ratingBar;
-
     String restaurantId="";
-
     FirebaseDatabase database;
     DatabaseReference restaurantList;
     DatabaseReference ratingDB;
 
 
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocHelper.onAttach(newBase,"en"));
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_details);
+
 
         database = FirebaseDatabase.getInstance();
         restaurantList=database.getReference("Restaurant");
@@ -76,46 +61,16 @@ public class RestaurantDetails extends AppCompatActivity implements RatingDialog
             @Override
             public void onClick(View view) {
                 showRatingDialog();
-
             }
         });
+
+
         name_restaurant = (TextView)findViewById(R.id.name_restaurant);
         description_restaurant = (TextView)findViewById(R.id.description_restaurant);
         location_restaurant = (TextView)findViewById(R.id.location_restaurant);
         information_1_restaurant = (TextView)findViewById(R.id.information_1_restaurant);
         information_2_restaurant = (TextView)findViewById(R.id.information_2_restaurant);
 //        image_restaurant=(ImageView)findViewById(R.id.image_restaurant);
-
-        description_restaurant_1 = (TextView)findViewById(R.id.description_restaurant_1);
-        location_restaurant_1 = (TextView)findViewById(R.id.location_restaurant_1);
-        information_1_restaurant_1 = (TextView)findViewById(R.id.information_1_restaurant_1);
-        information_2_restaurant_2 = (TextView)findViewById(R.id.information_2_restaurant_2);
-
-        hint = (TextView)findViewById(R.id.hint);
-        ratingdescription = (TextView)findViewById(R.id.ratingdescription);
-        ratingtitle = (TextView)findViewById(R.id.ratingtitle);
-        ratingpositive = (TextView)findViewById(R.id.ratingpositive);
-        ratingnegative = (TextView)findViewById(R.id.ratingnegative);
-        ratingdescriptionverybad = (TextView)findViewById(R.id.ratingdescriptionverybad);
-        ratingdescriptionnotgood = (TextView)findViewById(R.id.ratingdescriptionnotgood);
-        ratingdescriptiongood = (TextView)findViewById(R.id.ratingdescriptiongood);
-        ratingdescriptionverygood = (TextView)findViewById(R.id.ratingdescriptionverygood);
-        ratingdescriptionexcellent = (TextView)findViewById(R.id.ratingdescriptionexcellent);
-
-
-
-
-
-
-
-        Paper.init(this);
-
-        //Def lang is Eng
-        String language = Paper.book().read("language");
-        if (language==null)
-            Paper.book().write("language","en");
-
-        updateView((String)Paper.book().read("language"));
 
 
         if(getIntent() !=null)
@@ -128,23 +83,16 @@ public class RestaurantDetails extends AppCompatActivity implements RatingDialog
     }
 
     private void showRatingDialog(){
-
         new AppRatingDialog.Builder()
-                .setPositiveButtonText(R.string.ratingpositive)
-                .setNegativeButtonText(R.string.ratingnegative)
-
-//                .setNoteDescriptions(Arrays.asList(String.valueOf(new int[]{R.string.ratingdescriptionverybad}),
-//                        String.valueOf(new int[]{R.string.ratingdescriptionnotgood}),
-//                        String.valueOf(new int[]{R.string.ratingdescriptiongood}),
-//                        String.valueOf(new int[]{R.string.ratingdescriptiongood}),
-//                        String.valueOf(new int[]{R.string.ratingdescriptionexcellent})))
-                .setNoteDescriptions(Arrays.asList("Very Bad", "Not Good", "Good", "Very Good", "Excellent"))
+                .setPositiveButtonText("Submit")
+                .setNegativeButtonText("Cancel")
+                .setNoteDescriptions(Arrays.asList("Very Bad", "Not Good", "Good", "Very Good", "Excellent" ))
                 .setDefaultRating(1)
-                .setTitle(R.string.ratingtitle)
-                .setDescription(R.string.ratingdescription)
+                .setTitle("Restaurant Rate")
+                .setDescription("Please Rate This Restaurant and Give Some Feedback")
                 .setTitleTextColor(R.color.colorPrimary)
                 .setDescriptionTextColor(R.color.colorPrimary)
-                .setHint(R.string.hint)
+                .setHint("Please give your feedback here")
                 .setHintTextColor(android.R.color.white)
                 .setCommentBackgroundColor(R.color.colorPrimaryDark)
                 .setWindowAnimation(R.style.RatingDialogFadeAnim)
@@ -175,19 +123,15 @@ public class RestaurantDetails extends AppCompatActivity implements RatingDialog
                 {
                     ratingBar.setRating(sum);
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
 
     private void getDetailRestaurant(String restaurantId) {
-
-
 
         restaurantList.child(restaurantId).addValueEventListener(new ValueEventListener() {
             @Override
@@ -254,53 +198,5 @@ public class RestaurantDetails extends AppCompatActivity implements RatingDialog
          });
 
 
-    }
-
-    private void updateView(String lang){
-        Context context = LocHelper.setLocale(this,lang);
-        Resources resources = context.getResources();
-
-        description_restaurant_1.setText(resources.getString(R.string.Description));
-        location_restaurant_1.setText(resources.getString(R.string.Location));
-        information_1_restaurant_1.setText(resources.getString(R.string.Information1));
-        information_2_restaurant_2.setText(resources.getString(R.string.Information2));
-        hint.setText(resources.getString(R.string.hint));
-        ratingdescription.setText(resources.getString(R.string.ratingdescription));
-        ratingtitle.setText(resources.getString(R.string.ratingtitle));
-        ratingpositive.setText(resources.getString(R.string.ratingpositive));
-        ratingnegative.setText(resources.getString(R.string.ratingnegative));
-        ratingdescriptionexcellent.setText(resources.getString(R.string.ratingdescriptionexcellent));
-        ratingdescriptionverygood.setText(resources.getString(R.string.ratingdescriptionverygood));
-        ratingdescriptiongood.setText(resources.getString(R.string.ratingdescriptiongood));
-        ratingdescriptionnotgood.setText(resources.getString(R.string.ratingdescriptionnotgood));
-        ratingdescriptionverybad.setText(resources.getString(R.string.ratingdescriptionverybad));
-
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId()==R.id.language_en)
-        {
-            Paper.book().write("language","en");
-            updateView((String)Paper.book().read("language"));
-        }
-        else if (item.getItemId()==R.id.language_rus)
-        {
-            Paper.book().write("language","ru");
-            updateView((String)Paper.book().read("language"));
-        }
-        if (item.getItemId()==R.id.language_kor)
-        {
-            Paper.book().write("language","ko");
-            updateView((String)Paper.book().read("language"));
-        }
-        return true;
     }
 }

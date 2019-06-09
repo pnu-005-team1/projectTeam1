@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\TrapXATA\\Documents\\GitHub\\projectTeam1\\Category5\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lo\\values-lo.xml",
+            "outputFile": "C:\\Users\\ibrag\\AndroidStudioProjects\\Category5\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lo\\values-lo.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\TrapXATA\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\490d359f69ae7fd9443d7a5190157e52\\res\\values-lo\\values-lo.xml",
+                    "source": "C:\\Users\\ibrag\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.2.0.aar\\1df52f3f4a464a249a4c407b94ce5add\\res\\values-lo\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "190",
+                        "endOffsets": "437"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "2990",
+                        "endColumns": "190",
+                        "endOffsets": "3176"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ibrag\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\6817a59695f3978f74065346eff01553\\res\\values-lo\\values-lo.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\TrapXATA\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\9cf67bb37f668cf82dc5310317355ede\\res\\values-lo\\values-lo.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "38",
-                        "startColumns": "4",
-                        "startOffsets": "4640",
-                        "endColumns": "100",
-                        "endOffsets": "4736"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\TrapXATA\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\83835b8be726c569e81533bb12a6075e\\res\\values-lo\\values.xml",
+                    "source": "C:\\Users\\ibrag\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\c116f23290f1fabf390b2f2b7da7e266\\res\\values-lo\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -55,20 +55,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\TrapXATA\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.2.0.aar\\789b87db293d630dc5e30c37fb0c259a\\res\\values-lo\\values.xml",
+                    "source": "C:\\Users\\ibrag\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f6b596a6c7d7d034f7039dc81280529d\\res\\values-lo\\values-lo.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "190",
-                        "endOffsets": "437"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "27",
+                        "startLines": "38",
                         "startColumns": "4",
-                        "startOffsets": "2990",
-                        "endColumns": "190",
-                        "endOffsets": "3176"
+                        "startOffsets": "4640",
+                        "endColumns": "100",
+                        "endOffsets": "4736"
                     }
                 }
             ]

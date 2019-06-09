@@ -11,7 +11,7 @@ import kr.ac.pusan.cse.category5.R;
 
 public class RestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView name_restaurant;
-    public ImageView image_restaurant, fav_image;
+    public ImageView image_restaurant, fav_image, share;
     public TextView description_restaurant;
     public TextView location_restaurant;
     public TextView information_1_restaurant;
@@ -31,6 +31,7 @@ public class RestaurantViewHolder extends RecyclerView.ViewHolder implements Vie
         name_restaurant = (TextView)itemView.findViewById(R.id.name_restaurant);
         image_restaurant = (ImageView)itemView.findViewById(R.id.image_restaurant);//imageView
         fav_image = (ImageView)itemView.findViewById(R.id.favorite);//imageView
+        share = (ImageView)itemView.findViewById(R.id.share);//share
         description_restaurant=(TextView)itemView.findViewById(R.id.description_restaurant);//TextView
         location_restaurant=(TextView)itemView.findViewById(R.id.location_restaurant);
         information_1_restaurant=(TextView)itemView.findViewById(R.id.information_1_restaurant);
