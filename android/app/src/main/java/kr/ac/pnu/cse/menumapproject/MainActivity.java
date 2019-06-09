@@ -18,11 +18,16 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
@@ -50,15 +55,14 @@ import com.kakao.kakaolink.KakaoTalkLinkMessageBuilder;
 import com.kakao.util.KakaoParameterException;
 
 import java.security.MessageDigest;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import kr.ac.pnu.cse.menumapproject.db.DbHelper;
 import kr.ac.pnu.cse.menumapproject.model.Food;
-import kr.ac.pnu.cse.menumapproject.model.MenuModel;
 import kr.ac.pnu.cse.menumapproject.util.GeocoderUtil;
 import kr.ac.pnu.cse.menumapproject.util.RetrofitUtil;
 import retrofit2.Call;
@@ -100,6 +104,8 @@ public class MainActivity extends AppCompatActivity
 
     private DbHelper dbHelper;
 
+    private ArrayList<Food> foodArrayList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +129,7 @@ public class MainActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
         new AlarmHATT(getApplicationContext()).Alarm();
 //카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Button kakaoLinkBtn = (Button) findViewById(R.id.kakaoLinkBtn);
+        Button kakaoLinkBtn = (Button) findViewById(R.id.kakaoLink  Btn);
 
         kakaoLinkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +143,8 @@ public class MainActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
             }
-        });//카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        });
+        //카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //해쉬키
 
         //회원가입~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,12 +177,81 @@ public class MainActivity extends AppCompatActivity
         dbHelper.dbReset();
         dbHelper.addDummyData();
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
-        findViewById(R.id.testButton).setOnClickListener(new View.OnClickListener() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Log.d("LOG_TAG", "CLICK");
-                startActivity(new Intent(getApplicationContext(), TestActivity.class));
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_category_sam:
+                        showMenuMarker("sam");
+                        break;
+                    case R.id.nav_category_neng:
+                        showMenuMarker("neng");
+                        break;
+                    case R.id.nav_category_bul:
+                        showMenuMarker("bul");
+                        break;
+                    case R.id.nav_category_mil:
+                        showMenuMarker("mil");
+                        break;
+                    case R.id.nav_category_guk:
+                        showMenuMarker("guk");
+                        break;
+                    case R.id.nav_category_gim:
+                        showMenuMarker("gim");
+                        break;
+                    case R.id.nav_category_cho:
+                        showMenuMarker("cho");
+                        break;
+                    case R.id.nav_category_zza:
+                        showMenuMarker("zza");
+                        break;
+                    case R.id.nav_category_do:
+                        showMenuMarker("do");
+                        break;
+                }
+                ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
+                return false;
+            }
+        });
+    }
+
+    public void showMenuMarker(String menuName) {
+        mGoogleMap.clear();
+        RetrofitUtil.getRetrofitService().getMenu(menuName, "r").enqueue(new Callback<List<Food>>() {
+            @Override
+            public void onResponse(Call<List<Food>> call, Response<List<Food>> response) {
+                int foodSize = response.body().size();
+                List<Food> foodList = response.body();
+
+                foodArrayList.clear();
+
+                for (Food food : foodList) {
+                    foodArrayList.add(food);
+
+                    Log.d("LOG_TAG", "restname name : " + food.name + ", restname address : " + food.address);
+                    Log.d("LOG_TAG", "lat : " + food.latitude + ", lng : " + food.longitude);
+                    LatLng location = new LatLng(food.latitude, food.longitude);
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    markerOptions.title(food.name);
+                    markerOptions.position(location);
+                    markerOptions.draggable(true);
+
+                    mGoogleMap.addMarker(markerOptions).showInfoWindow();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Food>> call, Throwable t) {
+                Log.d("LOG_TAG", "fail : " + t.getMessage());
             }
         });
     }
@@ -259,7 +335,7 @@ public class MainActivity extends AppCompatActivity
 
         //mGoogleMap.getUiSettings().setZoomControlsEnabled(false);
         mGoogleMap.getUiSettings().setMyLocationButtonEnabled(true);
-        mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+        mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(11));
         mGoogleMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
             @Override
             public boolean onMyLocationButtonClick() {
@@ -289,43 +365,22 @@ public class MainActivity extends AppCompatActivity
             public void onCameraMove() {
             }
         });
-        /*
-        //DB에서 더미 데이터를 받아와서 지도에 표시
-        ArrayList<MenuModel> menuModelArrayList = dbHelper.getAllMenuList();
-        for (MenuModel menuModel : menuModelArrayList) {
-            Log.d("LOG_TAG", "lat : " + menuModel.lat + ", lng : " + menuModel.lng);
-            String markerTitle = menuModel.menuName;
-            String markerSnippet = menuModel.menuPrice + "원";
 
-            MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.title(markerTitle);
-            markerOptions.snippet(markerSnippet);
-            markerOptions.position(new LatLng(menuModel.lat, menuModel.lng));
-            markerOptions.draggable(true);
-
-            mGoogleMap.addMarker(markerOptions).showInfoWindow();
-        }
-        */
-        RetrofitUtil.getRetrofitService().getMenu("cho", "w").enqueue(new Callback<List<Food>>() {
+        mGoogleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
-            public void onResponse(Call<List<Food>> call, Response<List<Food>> response) {
-                List<Food> foodList = response.body();
-                for (Food food : foodList) {
-                    LatLng location = GeocoderUtil.getLatLngFromAddress(food.address, getApplicationContext());
-                    if (location != null) {
-                        MarkerOptions markerOptions = new MarkerOptions();
-                        markerOptions.title(food.name);
-                        markerOptions.position(location);
-                        markerOptions.draggable(true);
+            public void onInfoWindowClick(Marker marker) {
 
-                        mGoogleMap.addMarker(markerOptions).showInfoWindow();
+                String menus = "";
+                for(Food food: foodArrayList) {
+                    if(food.name.equals(marker.getTitle())) {
+                        menus = food.menus;
                     }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<List<Food>> call, Throwable t) {
-                Log.d("LOG_TAG", "fail : " + t.getMessage());
+                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                intent.putExtra(DetailActivity.REST_NAME_KEY, marker.getTitle());
+                intent.putExtra(DetailActivity.MENU_KEY, menus);
+                startActivity(intent);
             }
         });
 
@@ -474,14 +529,6 @@ public class MainActivity extends AppCompatActivity
 
         LatLng currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
 
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(currentLatLng);
-        markerOptions.title(markerTitle);
-        markerOptions.snippet(markerSnippet);
-        markerOptions.draggable(true);
-
-        currentMarker = mGoogleMap.addMarker(markerOptions);
-
         if (mMoveMapByAPI) {
             Log.d(TAG, "setCurrentLocation :  mGoogleMap moveCamera "
                     + location.getLatitude() + " " + location.getLongitude());
@@ -508,7 +555,6 @@ public class MainActivity extends AppCompatActivity
         markerOptions.snippet(markerSnippet);
         markerOptions.draggable(true);
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-        currentMarker = mGoogleMap.addMarker(markerOptions);
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(DEFAULT_LOCATION, 15);
         mGoogleMap.moveCamera(cameraUpdate);
