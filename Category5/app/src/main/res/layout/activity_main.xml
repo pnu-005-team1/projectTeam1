@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:background="@color/colorPrimary"
     >
 
     <LinearLayout
@@ -14,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="135dp"
         android:orientation="vertical"
-        android:background="@android:color/holo_green_dark">
+        >
 
         <TextView
             android:layout_width="200dp"
@@ -28,7 +29,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Register"
+            android:text="@string/SignOut"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="97dp"    />

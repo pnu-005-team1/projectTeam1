@@ -1,4 +1,4 @@
-#Sun Jun 09 13:36:40 KST 2019
-base.0=C\:\\Users\\ibrag\\AndroidStudioProjects\\Category5\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Sun Jun 09 16:32:23 KST 2019
+base.0=C\:\\Users\\ibrag\\Documents\\GitHub\\projectTeam1\\Category5\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

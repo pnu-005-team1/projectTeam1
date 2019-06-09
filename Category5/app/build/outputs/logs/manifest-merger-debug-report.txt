@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
 MERGED from [com.stepstone.apprating:app-rating:2.0.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\app-rating-2.0.0.aar\446ed27d639220f0cdf4ca740e5f124d\AndroidManifest.xml:2:1-14:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9b3d82cb6d1bf57b456c71880e2af0a8\AndroidManifest.xml:17:1-22:12
 MERGED from [com.cepheuen.elegant-number-button:lib:1.0.2] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\lib-1.0.2.aar\b4405e960e8b7e34375d62933cd95ad8\AndroidManifest.xml:2:1-19:12
@@ -34,6 +34,7 @@ MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] C:\Users
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-16.0.0.aar\7eace154a8086c5fae36012a5f5232b8\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.2.0.aar\1df52f3f4a464a249a4c407b94ce5add\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\0d511de26ef3fe758ea4498a6f8d4db8\AndroidManifest.xml:17:1-22:12
+MERGED from [io.paperdb:paperdb:2.5] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\paperdb-2.5.aar\842b46c461be4ad940c2e79bd2a05f95\AndroidManifest.xml:2:1-14:12
 MERGED from [com.android.support:transition:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\3c3dc02ca0c2a4576a1c3a634664b65a\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\f3f8a718b7808253185c6bcad0348417\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\ccb92b2634e69ab15a188bdd06ed5807\AndroidManifest.xml:17:1-22:12
@@ -48,25 +49,25 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\ibrag\.gradle\caches
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\dded1a4af688955973faee2d51d484e4\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\e159648d3cb06c9fdbbaf4632b70278a\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a3ff556ca2c485b3c646b773e66de832\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
 	package
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:3:5-40
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:3:5-40
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:1-36:12
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:5:5-34:19
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:5:5-34:19
 MERGED from [com.stepstone.apprating:app-rating:2.0.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\app-rating-2.0.0.aar\446ed27d639220f0cdf4ca740e5f124d\AndroidManifest.xml:12:5-20
 MERGED from [com.stepstone.apprating:app-rating:2.0.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\app-rating-2.0.0.aar\446ed27d639220f0cdf4ca740e5f124d\AndroidManifest.xml:12:5-20
 MERGED from [com.cepheuen.elegant-number-button:lib:1.0.2] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\lib-1.0.2.aar\b4405e960e8b7e34375d62933cd95ad8\AndroidManifest.xml:11:5-17:19
@@ -115,76 +116,78 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\User
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-16.0.0.aar\7eace154a8086c5fae36012a5f5232b8\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.2.0.aar\1df52f3f4a464a249a4c407b94ce5add\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.2.0.aar\1df52f3f4a464a249a4c407b94ce5add\AndroidManifest.xml:22:5-26:19
+MERGED from [io.paperdb:paperdb:2.5] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\paperdb-2.5.aar\842b46c461be4ad940c2e79bd2a05f95\AndroidManifest.xml:12:5-20
+MERGED from [io.paperdb:paperdb:2.5] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\paperdb-2.5.aar\842b46c461be4ad940c2e79bd2a05f95\AndroidManifest.xml:12:5-20
 	android:supportsRtl
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:8:9-41
 	android:roundIcon
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:9:9-54
 	android:icon
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:7:9-43
 	android:allowBackup
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:11:9-40
 activity#kr.ac.pusan.cse.category5.UserList
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:12:9-55
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:12:9-55
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:12:19-43
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:12:19-43
 activity#kr.ac.pusan.cse.category5.RestaurantDetails
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:13:9-55
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:13:9-55
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:13:19-52
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:13:19-52
 activity#kr.ac.pusan.cse.category5.MainActivity
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:14:9-21:20
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:14:9-21:20
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:14:19-47
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:14:19-47
 intent-filter#action:name:android.intent.action.MAIN+action:name:android.intent.action.VIEW+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:15:13-20:29
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:15:13-20:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:16:17-69
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:16:25-66
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:16:25-66
 action#android.intent.action.VIEW
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:17:17-69
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:17:17-69
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:17:25-66
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:19:17-77
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:19:17-77
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:19:27-74
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:19:27-74
 activity#kr.ac.pusan.cse.category5.SignIn
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:22:9-24:38
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:22:9-24:38
 	android:label
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:24:13-35
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:24:13-35
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:23:13-35
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:23:13-35
 activity#kr.ac.pusan.cse.category5.SignUp
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:25:9-27:38
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:25:9-27:38
 	android:label
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:27:13-35
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:27:13-35
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:26:13-35
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:26:13-35
 activity#kr.ac.pusan.cse.category5.Home
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:28:9-31:59
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:28:9-31:59
 	android:label
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:30:13-56
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:30:13-56
 	android:theme
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:31:13-56
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:31:13-56
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:29:13-33
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:29:13-33
 activity#kr.ac.pusan.cse.category5.UserModel.UUUsers
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:32:9-55
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:32:9-55
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:32:19-52
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:32:19-52
 activity#kr.ac.pusan.cse.category5.RestaurantList
-ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:33:9-52
+ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:33:9-52
 	android:name
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml:33:19-49
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml:33:19-49
 uses-sdk
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
 MERGED from [com.stepstone.apprating:app-rating:2.0.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\app-rating-2.0.0.aar\446ed27d639220f0cdf4ca740e5f124d\AndroidManifest.xml:8:5-10:41
 MERGED from [com.stepstone.apprating:app-rating:2.0.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\app-rating-2.0.0.aar\446ed27d639220f0cdf4ca740e5f124d\AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:design:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\9b3d82cb6d1bf57b456c71880e2af0a8\AndroidManifest.xml:20:5-44
@@ -245,6 +248,8 @@ MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\ibra
 MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.2.0.aar\1df52f3f4a464a249a4c407b94ce5add\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\0d511de26ef3fe758ea4498a6f8d4db8\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\0d511de26ef3fe758ea4498a6f8d4db8\AndroidManifest.xml:20:5-44
+MERGED from [io.paperdb:paperdb:2.5] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\paperdb-2.5.aar\842b46c461be4ad940c2e79bd2a05f95\AndroidManifest.xml:8:5-10:41
+MERGED from [io.paperdb:paperdb:2.5] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\paperdb-2.5.aar\842b46c461be4ad940c2e79bd2a05f95\AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:transition:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\3c3dc02ca0c2a4576a1c3a634664b65a\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\3c3dc02ca0c2a4576a1c3a634664b65a\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\f3f8a718b7808253185c6bcad0348417\AndroidManifest.xml:20:5-44
@@ -273,16 +278,16 @@ MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\ibrag\.gradle\cach
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\e159648d3cb06c9fdbbaf4632b70278a\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a3ff556ca2c485b3c646b773e66de832\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a3ff556ca2c485b3c646b773e66de832\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\ibrag\AndroidStudioProjects\Category5\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\ibrag\Documents\GitHub\projectTeam1\Category5\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from [com.firebaseui:firebase-ui-database:1.2.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\firebase-ui-database-1.2.0.aar\36a07d3609d2e162fa9841ef55ff9c5b\AndroidManifest.xml:11:5-67
 MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\ibrag\.gradle\caches\transforms-1\files-1.1\firebase-database-17.0.0.aar\c27938c7948b3939496f1064377e6df6\AndroidManifest.xml:26:5-67
