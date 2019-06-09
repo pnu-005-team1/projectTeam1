@@ -5,14 +5,32 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_category_1"
-            android:title="카테고리1" />
+            android:id="@+id/nav_category_sam"
+            android:title="삼겹살" />
         <item
-            android:id="@+id/nav_category_2"
-            android:title="카테고리2" />
+            android:id="@+id/nav_category_neng"
+            android:title="냉면" />
         <item
-            android:id="@+id/nav_category_3"
-            android:title="카테고리3" />
+            android:id="@+id/nav_category_bul"
+            android:title="불고기" />
+        <item
+            android:id="@+id/nav_category_mil"
+            android:title="밀면" />
+        <item
+            android:id="@+id/nav_category_guk"
+            android:title="국수" />
+        <item
+            android:id="@+id/nav_category_gim"
+            android:title="김밥" />
+        <item
+            android:id="@+id/nav_category_cho"
+            android:title="초밥" />
+        <item
+            android:id="@+id/nav_category_zza"
+            android:title="짜장면" />
+        <item
+            android:id="@+id/nav_category_do"
+            android:title="도시락" />
     </group>
 
 
