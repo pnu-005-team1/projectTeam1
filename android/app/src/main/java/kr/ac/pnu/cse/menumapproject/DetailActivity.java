@@ -21,6 +21,7 @@ import kr.ac.pnu.cse.menumapproject.db.DbHelper;
 import kr.ac.pnu.cse.menumapproject.model.Review;
 import kr.ac.pnu.cse.menumapproject.model.Star;
 import kr.ac.pnu.cse.menumapproject.util.RetrofitUtil;
+import kr.ac.pnu.cse.menumapproject.util.SharedPreferenceUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -56,6 +57,10 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        int themeNumFromPreference = SharedPreferenceUtil.getThemeResId(getApplicationContext());
+        setTheme(themeNumFromPreference);
+
         setContentView(R.layout.activity_detail);
 
         dbHelper = new DbHelper(this, "MENU_DB", null, 1);

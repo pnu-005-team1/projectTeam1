@@ -16,6 +16,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Pattern;
 
+import kr.ac.pnu.cse.menumapproject.util.SharedPreferenceUtil;
+
 public class SignActivity extends AppCompatActivity {
 
     // 비밀번호 정규식
@@ -34,6 +36,10 @@ public class SignActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        int themeNumFromPreference = SharedPreferenceUtil.getThemeResId(getApplicationContext());
+        setTheme(themeNumFromPreference);
+
         setContentView(R.layout.activity_sign);
 
         // 파이어베이스 인증 객체 선언

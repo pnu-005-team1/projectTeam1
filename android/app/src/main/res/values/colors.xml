@@ -4,11 +4,19 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="colorPrimary2">#897A</color>
-    <color name="colorPrimaryDark2">#897D</color>
-    <color name="colorAccent2">#D81B60</color>
+    <color name="colorPrimary2">@android:color/holo_red_light</color>
+    <color name="colorPrimaryDark2">@android:color/holo_red_dark</color>
+    <color name="colorAccent2">@android:color/black</color>
 
-    <color name="colorPrimary3">#8856bb</color>
-    <color name="colorPrimaryDark3">#4758bb</color>
+    <color name="colorPrimary3">@android:color/holo_orange_light</color>
+    <color name="colorPrimaryDark3">@android:color/holo_orange_dark</color>
     <color name="colorAccent3">#D81B60</color>
+
+    <color name="colorPrimary4">@android:color/holo_blue_light</color>
+    <color name="colorPrimaryDark4">@android:color/holo_blue_dark</color>
+    <color name="colorAccent4">#D81B60</color>
+
+    <color name="colorPrimary5">@android:color/holo_purple</color>
+    <color name="colorPrimaryDark5">@android:color/holo_purple</color>
+    <color name="colorAccent5">#D81B60</color>
 </resources>

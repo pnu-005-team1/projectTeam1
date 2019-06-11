@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import kr.ac.pnu.cse.menumapproject.util.SharedPreferenceUtil;
+
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "ProfileActivity";
 
@@ -31,6 +33,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        int themeNumFromPreference = SharedPreferenceUtil.getThemeResId(getApplicationContext());
+        setTheme(themeNumFromPreference);
+
         setContentView(R.layout.activity_profile);
 
         //initializing views

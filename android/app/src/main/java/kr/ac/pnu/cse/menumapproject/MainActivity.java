@@ -66,6 +66,7 @@ import kr.ac.pnu.cse.menumapproject.model.Food;
 import kr.ac.pnu.cse.menumapproject.model.MenuModel;
 import kr.ac.pnu.cse.menumapproject.util.GeocoderUtil;
 import kr.ac.pnu.cse.menumapproject.util.RetrofitUtil;
+import kr.ac.pnu.cse.menumapproject.util.SharedPreferenceUtil;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -115,19 +116,9 @@ public class MainActivity extends AppCompatActivity
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         setContentView(R.layout.activity_main);
 
-        switch (ConfigActivity.ThemeNum) {
-            case 0:
-                setTheme(R.style.AppTheme);
-                break;
-            case 1:
-                setTheme(R.style.AppTheme2);
-                break;
-            case 2:
-                setTheme(R.style.AppTheme3);
-                break;
-        }
 
         Log.d(TAG, "onCreate");
         mActivity = this;
@@ -161,18 +152,6 @@ public class MainActivity extends AppCompatActivity
         //카카오톡 ~~~~~ 공유 온클릭시~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //해쉬키
 
-        //회원가입~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Button JoinButton = (Button) findViewById(R.id.firebaseAuth);
-
-        JoinButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SignActivity.class);
-                startActivity(intent);
-
-            }
-        });
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         try {
             PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
@@ -190,6 +169,7 @@ public class MainActivity extends AppCompatActivity
         dbHelper = new DbHelper(this, "MENU_DB", null, 1);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setBackgroundResource(SharedPreferenceUtil.getPrimaryColorResId(getApplicationContext()));
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -231,6 +211,9 @@ public class MainActivity extends AppCompatActivity
                         break;
                     case R.id.nav_category_favorite:
                         showFavoriteMarker();
+                        break;
+                    case R.id.nav_category_config:
+                        startActivity(new Intent(getApplicationContext(), ConfigActivity.class));
                         break;
                 }
                 ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);

@@ -4,57 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffe6b3"
     tools:context=".ProfileActivity">
 
 
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:orientation="vertical">
 
         <ImageView
-            android:src="@mipmap/ic_launcher"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/textviewUserEmail"
-            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="" />
 
         <Button
             android:id="@+id/buttonLogout"
-            android:text="로그아웃"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="로그아웃" />
+
         <Button
             android:id="@+id/startButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:text="start menu map"
+            android:layout_width="262dp"
+            android:layout_height="120dp"
             android:layout_gravity="center"
             android:layout_marginTop="250dp"
-            android:textSize="10dp"
-            />
+            android:backgroundTint="@android:color/holo_red_light"
+            android:text="메뉴 지도 보기"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
 
 
         <TextView
-            android:text="회원탈퇴 합니다."
             android:id="@+id/textviewDelete"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/colorAccent"
-            android:layout_margin="16dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:text="회원탈퇴 합니다."
+            android:textColor="@color/colorAccent" />
     </LinearLayout>
 </RelativeLayout>
 

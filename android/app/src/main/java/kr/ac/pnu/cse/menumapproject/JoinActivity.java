@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Pattern;
+
+import kr.ac.pnu.cse.menumapproject.util.SharedPreferenceUtil;
 
 public class JoinActivity extends AppCompatActivity {
 
@@ -34,7 +37,12 @@ public class JoinActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        int themeNumFromPreference = SharedPreferenceUtil.getThemeResId(getApplicationContext());
+        setTheme(themeNumFromPreference);
+
         setContentView(R.layout.activity_join);
+
 
         // 파이어베이스 인증 객체 선언
         firebaseAuth = FirebaseAuth.getInstance();
