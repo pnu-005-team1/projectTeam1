@@ -73,6 +73,7 @@ public class DetailActivity extends AppCompatActivity {
                 Snackbar.make(findViewById(android.R.id.content), "즐겨찾기에 등록되었습니다.", Snackbar.LENGTH_LONG).show();
             }
         });
+        addFavorite.setBackgroundResource(SharedPreferenceUtil.getPrimaryColorResId(getApplicationContext()));
 
         removeFavorite = findViewById(R.id.detail_remove_favorite);
         removeFavorite.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +83,7 @@ public class DetailActivity extends AppCompatActivity {
                 finish();
             }
         });
+        removeFavorite.setBackgroundResource(SharedPreferenceUtil.getPrimaryColorResId(getApplicationContext()));
 
         restname = getIntent().getStringExtra(REST_NAME_KEY);
         menus = getIntent().getStringExtra(MENU_KEY);
